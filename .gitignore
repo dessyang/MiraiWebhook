@@ -34,3 +34,8 @@ build/
 
 ### Mirai ###
 deviceInfo.json
+cache
+
+.mvn
+
+src/test
