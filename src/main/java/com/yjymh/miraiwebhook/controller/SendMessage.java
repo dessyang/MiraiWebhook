@@ -42,4 +42,9 @@ public class SendMessage {
             return ResponseUtil.setFailResponse("错误");
         }
     }
+
+    @RequestMapping(value = "/sendgroup")
+    public String sendGroupMessage(@RequestParam Map<String, Object> map) {
+        return null;
+    }
 }
