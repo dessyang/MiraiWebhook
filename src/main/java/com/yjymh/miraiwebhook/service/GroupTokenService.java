@@ -4,7 +4,7 @@ import com.yjymh.miraiwebhook.entity.GroupToken;
 
 public interface GroupTokenService {
 
-    GroupToken queryGroupById(long id);
+    GroupToken queryGroupById(long account);
 
     GroupToken queryGroupByToken(String token);
 
@@ -12,6 +12,6 @@ public interface GroupTokenService {
 
     int updateGroup(GroupToken group);
 
-    int deleteGroup(Long id);
+    int deleteGroup(Long account);
 
 }

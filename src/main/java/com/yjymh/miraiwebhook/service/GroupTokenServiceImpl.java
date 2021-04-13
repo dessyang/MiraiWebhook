@@ -12,8 +12,8 @@ public class GroupTokenServiceImpl implements GroupTokenService{
     private GroupTokenMapper groupTokenMapper;
 
     @Override
-    public GroupToken queryGroupById(long id) {
-        return groupTokenMapper.queryGroupById(id);
+    public GroupToken queryGroupById(long account) {
+        return groupTokenMapper.queryGroupById(account);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class GroupTokenServiceImpl implements GroupTokenService{
     }
 
     @Override
-    public int deleteGroup(Long id) {
-        return groupTokenMapper.deleteGroup(id);
+    public int deleteGroup(Long account) {
+        return groupTokenMapper.deleteGroup(account);
     }
 }

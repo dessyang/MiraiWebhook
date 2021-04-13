@@ -10,7 +10,6 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GroupToken {
-    private Long group;
     private Long account;
     private String token;
     private boolean status;

@@ -1,7 +1,9 @@
 package com.yjymh.miraiwebhook.controller;
 
 import com.yjymh.miraiwebhook.entity.FriendToken;
+import com.yjymh.miraiwebhook.entity.GroupToken;
 import com.yjymh.miraiwebhook.robot.PennyBot;
+import com.yjymh.miraiwebhook.service.GroupTokenService;
 import com.yjymh.miraiwebhook.utils.ResponseUtil;
 import com.yjymh.miraiwebhook.service.FriendTokenService;
 import net.mamoe.mirai.Bot;
@@ -15,6 +17,9 @@ public class SendMessage {
 
     @Autowired
     private FriendTokenService friendTokenService;
+
+    @Autowired
+    private GroupTokenService groupTokenService;
 
 
     @RequestMapping(value = "/sendfriend")
@@ -45,6 +50,26 @@ public class SendMessage {
 
     @RequestMapping(value = "/sendgroup")
     public String sendGroupMessage(@RequestParam Map<String, Object> map) {
-        return null;
+        try {
+            Bot bot = PennyBot.getBot();
+
+            String token = (String) map.get("token");
+            String msg = (String) map.get("msg");
+
+            GroupToken groupToken = groupTokenService.queryGroupByToken(token);
+
+            if(msg != null && token != null) {
+                if (groupToken != null) {
+                    Long group = groupToken.getAccount();
+                    if(group != null) {
+                        bot.getGroup(group).sendMessage(msg);
+                        return ResponseUtil.setSuccessResponse("发送成功");
+                    }
+                }
+            }
+            return ResponseUtil.setSuccessResponse("token错误");
+        } catch (Exception e) {
+            return ResponseUtil.setFailResponse("错误");
+        }
     }
 }
