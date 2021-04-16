@@ -35,4 +35,5 @@ public class FriendTokenServiceImpl implements FriendTokenService {
     public int deleteFriend(Long account) {
         return friendTokenMapper.deleteFriend(account);
     }
+
 }

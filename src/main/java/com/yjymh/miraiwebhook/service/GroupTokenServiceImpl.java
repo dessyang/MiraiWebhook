@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GroupTokenServiceImpl implements GroupTokenService{
+public class GroupTokenServiceImpl implements GroupTokenService {
 
     @Autowired
     private GroupTokenMapper groupTokenMapper;
@@ -35,4 +35,5 @@ public class GroupTokenServiceImpl implements GroupTokenService{
     public int deleteGroup(Long account) {
         return groupTokenMapper.deleteGroup(account);
     }
+
 }
