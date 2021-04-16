@@ -1,7 +1,8 @@
-package com.yjymh.miraiwebhook.service;
+package com.yjymh.miraiwebhook.service.Impl;
 
 import com.yjymh.miraiwebhook.entity.FriendToken;
 import com.yjymh.miraiwebhook.mapper.FriendTokenMapper;
+import com.yjymh.miraiwebhook.service.FriendTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
