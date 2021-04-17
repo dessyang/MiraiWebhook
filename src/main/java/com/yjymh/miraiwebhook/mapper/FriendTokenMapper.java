@@ -6,8 +6,8 @@ import org.apache.ibatis.annotations.*;
 @Mapper
 public interface FriendTokenMapper {
 
-    @Select("select * from friend where account = ${id}")
-    FriendToken queryFriendById(long id);
+    @Select("select * from friend where account = ${account}")
+    FriendToken queryFriendById(long account);
 
     @Select("select * from friend where token = '${token}'")
     FriendToken queryFriendByToken(String token);
@@ -19,6 +19,6 @@ public interface FriendTokenMapper {
     int updateFriend(FriendToken friend);
 
     @Delete("DELETE FROM `friend` WHERE `account`=${account}")
-    int deleteFriend(Long id);
+    int deleteFriend(Long account);
 
 }

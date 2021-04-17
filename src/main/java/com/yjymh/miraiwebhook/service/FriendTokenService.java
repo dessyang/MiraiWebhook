@@ -3,7 +3,8 @@ package com.yjymh.miraiwebhook.service;
 import com.yjymh.miraiwebhook.entity.FriendToken;
 
 public interface FriendTokenService {
-    FriendToken queryFriendById(Long id);
+
+    FriendToken queryFriendById(Long account);
 
     FriendToken queryFriendByToken(String token);
 
@@ -11,5 +12,6 @@ public interface FriendTokenService {
 
     int updateFriend(FriendToken friend);
 
-    int deleteFriend(Long id);
+    int deleteFriend(Long account);
+
 }

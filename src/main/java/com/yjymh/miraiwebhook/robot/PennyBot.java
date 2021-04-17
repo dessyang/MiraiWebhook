@@ -34,8 +34,8 @@ public class PennyBot implements ApplicationRunner {
     }
 
     // bot启动方法
-    public void startBot(){
-        bot = BotFactory.INSTANCE.newBot(botAccount,botPwd, new BotConfiguration() {{
+    public void startBot() {
+        bot = BotFactory.INSTANCE.newBot(botAccount, botPwd, new BotConfiguration() {{
             fileBasedDeviceInfo(deviceInfo);
             setProtocol(setDevice(device));
         }});
@@ -50,7 +50,7 @@ public class PennyBot implements ApplicationRunner {
     }
 
     // 获取bot实例
-    public static Bot getBot(){
+    public static Bot getBot() {
         return bot;
     }
 

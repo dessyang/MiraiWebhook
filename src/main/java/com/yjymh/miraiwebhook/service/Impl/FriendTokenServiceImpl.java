@@ -13,8 +13,8 @@ public class FriendTokenServiceImpl implements FriendTokenService {
     private FriendTokenMapper friendTokenMapper;
 
     @Override
-    public FriendToken queryFriendById(Long id) {
-        return friendTokenMapper.queryFriendById(id);
+    public FriendToken queryFriendById(Long account) {
+        return friendTokenMapper.queryFriendById(account);
     }
 
     @Override
@@ -33,7 +33,8 @@ public class FriendTokenServiceImpl implements FriendTokenService {
     }
 
     @Override
-    public int deleteFriend(Long id) {
-        return friendTokenMapper.deleteFriend(id);
+    public int deleteFriend(Long account) {
+        return friendTokenMapper.deleteFriend(account);
     }
+
 }
