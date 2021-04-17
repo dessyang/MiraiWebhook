@@ -1,5 +1,9 @@
 package com.yjymh.miraiwebhook.service.Impl;
 
+<<<<<<< HEAD
+=======
+import com.yjymh.miraiwebhook.entity.GroupToken;
+>>>>>>> origin/master
 import com.yjymh.miraiwebhook.mapper.GroupTokenMapper;
 import com.yjymh.miraiwebhook.service.GroupTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
