@@ -2,15 +2,16 @@ package com.yjymh.miraiwebhook.controller;
 
 import com.yjymh.miraiwebhook.entity.FriendToken;
 import com.yjymh.miraiwebhook.entity.GroupToken;
+import com.yjymh.miraiwebhook.entity.Response;
 import com.yjymh.miraiwebhook.robot.PennyBot;
+import com.yjymh.miraiwebhook.service.FriendTokenService;
 import com.yjymh.miraiwebhook.service.GroupTokenService;
 import com.yjymh.miraiwebhook.utils.ResponseUtil;
-import com.yjymh.miraiwebhook.service.FriendTokenService;
 import net.mamoe.mirai.Bot;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SendMessage {
@@ -34,15 +35,15 @@ public class SendMessage {
                     Long id = friendToken.getAccount();
                     if (id != null) {
                         bot.getFriend(id).sendMessage(msg);
-                        return ResponseUtil.setSuccessResponse("发送成功");
+                        return ResponseUtil.setResponse(Response.SUCCESS);
                     }
                 }
             }
 
-            return ResponseUtil.setSuccessResponse("token错误");
+            return ResponseUtil.setResponse(Response.TOKEN_FAIL);
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseUtil.setFailResponse("错误");
+            return ResponseUtil.setResponse(Response.FAIL);
         }
     }
 
@@ -59,13 +60,13 @@ public class SendMessage {
                     Long group = groupToken.getAccount();
                     if (group != null) {
                         bot.getGroup(group).sendMessage(msg);
-                        return ResponseUtil.setSuccessResponse("发送成功");
+                        return ResponseUtil.setResponse(Response.SUCCESS);
                     }
                 }
             }
-            return ResponseUtil.setSuccessResponse("token错误");
+            return ResponseUtil.setResponse(Response.TOKEN_FAIL);
         } catch (Exception e) {
-            return ResponseUtil.setFailResponse("错误");
+            return ResponseUtil.setResponse(Response.FAIL);
         }
     }
 }

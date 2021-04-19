@@ -1,33 +1,25 @@
 package com.yjymh.miraiwebhook.entity;
 
+public enum Response {
 
-public class Response {
+    SUCCESS(0, "发送成功"),
+    TOKEN_FAIL(1, "Token错误"),
+    FAIL(2, "错误");
 
     private int code;
-    private String msg;
+    private String desc;
 
-    public Response(int code, String msg) {
+    Response(int code, String desc) {
         this.code = code;
-        this.msg = msg;
-    }
-
-    public Response() {
+        this.desc = desc;
     }
 
     public int getCode() {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public String getDesc() {
+        return desc;
     }
 
 }
